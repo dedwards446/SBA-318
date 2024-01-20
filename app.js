@@ -10,21 +10,19 @@ app.set('views', __dirname + '/views');
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Custom Middleware 1
+// Middleware 1
 app.use((req, res, next) => {
-  console.log('Custom Middleware 1');
-  // Your middleware logic here
+  console.log('Middleware 1');
   next();
 });
 
-// Custom Middleware 2
+//  Middleware 2
 app.use((req, res, next) => {
-  console.log('Custom Middleware 2');
-  // Your middleware logic here
+  console.log('Middleware 2');
   next();
 });
 
-// Error Handling Middleware
+// Middleware Error Handling 
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send('Something went wrong!');
@@ -45,7 +43,7 @@ app.get('/form', (req, res) => {
 });
 
 app.post('/api/create', (req, res) => {
-  // Handle POST request to create data
+  //  POST request to create data
   const newData = req.body.data;
   dataCategory.push(newData);
   res.redirect('/');
@@ -58,4 +56,6 @@ app.use(express.static(__dirname + '/public'));
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+
 
